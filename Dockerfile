@@ -3,7 +3,8 @@ USER root
 RUN apt-get update && apt-get install -y apt-transport-https \
     zsh \
     git-core \
-    git-flow;
+    git-flow \
+    nano;
 USER root
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh;
 #RUN chsh -s `which zsh;
