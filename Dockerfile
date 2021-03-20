@@ -1,3 +1,3 @@
 FROM jenkins/jenkins
 USER root
-RUN apt-get update
+RUN sudo apt-get update && sudo apt-get install -y apt-transport-https
