@@ -2,6 +2,7 @@ FROM ubuntu
 USER root
 RUN apt-get update && apt-get upgrade -y && apt-get install -y  zsh \ 
     git-core \
+    wget \
     git-flow;
 USER root
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh;
