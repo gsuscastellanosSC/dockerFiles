@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 USER root
-COPY . /shell/initialConfig.sh
+COPY . /shell
 RUN make /shell
-CMD shell/initialConfig.sh
+CMD sh /shell/initialConfig.sh
 #USER jenkins
 #RUN jenkins-plugin-cli --plugins blueocean:1.24.5
