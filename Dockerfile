@@ -1,3 +1,3 @@
-FROM jenkins:latest
+FROM jenkins
 
 RUN apt-get update;
