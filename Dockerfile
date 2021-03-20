@@ -1,6 +1,5 @@
 FROM ubuntu:20.04
 USER root
-COPY ["shell", "/shell"]
 RUN apt-get update && apt-get upgrade -y && apt-get install sudo nano && apt-get update && apt-get upgrade -y;
 RUN apt-get install -y zsh git-core git-flow wget;
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh;
