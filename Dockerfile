@@ -1,3 +1,3 @@
-FROM jenkins
+FROM jenkins:latest
 
 RUN apt-get update;
