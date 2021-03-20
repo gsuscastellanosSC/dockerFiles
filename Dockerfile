@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:20.04
 USER root
 RUN apt-get update && apt-get upgrade -y;
 RUN apt-get install -y zsh git-core git-flow;
