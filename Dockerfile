@@ -22,4 +22,7 @@ RUN apt-get update && apt-get upgrade -y && \
     sudo apt update && \
     apt-get install -y docker-ce docker-ce-cli containerd.io && \
     /etc/init.d/docker start && \
-    /etc/init.d/docker status;
+    /etc/init.d/docker status && \
+    sudo useradd -m jenkins && \
+    sudo usermod -aG root jenkins && \
+    sudo adduser jenkins sudo;
