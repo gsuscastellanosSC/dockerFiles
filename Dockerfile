@@ -26,4 +26,4 @@ RUN apt-get update && apt-get upgrade -y && \
     sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list' && \
     apt-get update && \
     apt-get install -y jenkins;
-CMD /etc/init.d/jenkins start;
+CMD /etc/init.d/jenkins start && tail -f /dev/null;
