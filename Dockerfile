@@ -10,9 +10,10 @@ RUN apt-get update && apt-get upgrade -y && \
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && \ 
     apt-get update && apt-get upgrade -y;
 USER root
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone;
-RUN cat /etc/timezone;
-RUN apt-get update;
-RUN cat /etc/timezone;
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \ 
+    echo $TZ > /etc/timezone && \
+    RUN cat /etc/timezone && \
+    RUN apt-get update && \
+    cat /etc/timezone;
 #USER root
 #RUN apt-get install -y software-properties-common;
