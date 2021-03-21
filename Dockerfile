@@ -1,6 +1,5 @@
 FROM openjdk:7
 FROM ubuntu:20.04
-USER root
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install sudo nano && \ 
     apt-get install -y zsh git-core git-flow wget && \ 
@@ -16,6 +15,9 @@ RUN useradd -m jenkins && \
 RUN apt-get update && apt-get install -y apt-transport-https \
        ca-certificates curl gnupg2 \
        software-properties-common
+USER root
+ENV TZ=Europe/Kiev
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get install -y jenkins && \ 
     apt-get update && apt-get upgrade -y
 USER jenkins
