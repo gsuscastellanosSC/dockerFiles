@@ -10,4 +10,5 @@ RUN apt-get update && apt-get upgrade -y && \
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && \ 
     apt-get update && apt-get upgrade -y;
 RUN ["ln", "-snf", "/usr/share/zoneinfo/$TZ", "/etc/localtime"];
-RUN echo $TZ > /etc/timezone && cat /etc/timezone && apt-get install software-properties-common;
+RUN echo $TZ > /etc/timezone;
+RUN apt-get install software-properties-common;
