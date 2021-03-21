@@ -1,3 +1,4 @@
+FROM openjdk:8-jdk-alpine
 FROM ubuntu:20.04
 USER root
 RUN apt-get update && apt-get upgrade -y && \
@@ -12,6 +13,12 @@ RUN useradd -m jenkins && \
     sudo apt-get install -y wget gnupg && \
     wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - && \
     sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update && apt-get install -y apt-transport-https \
+       ca-certificates curl gnupg2 \
+       software-properties-common
+RUN apt-get install -y jenkins && \ 
+    apt-get update && apt-get upgrade -y
+USER jenkins
+RUN jenkins-plugin-cli --plugins "blueocean:1.24.5 docker-workflow:1.26"
 #USER jenkins
 #RUN jenkins-plugin-cli --plugins blueocean:1.24.5
