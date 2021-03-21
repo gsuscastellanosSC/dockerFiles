@@ -7,7 +7,4 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y fonts-powerline && \ 
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && \ 
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && \ 
-    apt-get update && apt-get upgrade -y && \ 
-RUN ["chsh", "-s", "`which zsh`"];
-#USER jenkins
-#RUN jenkins-plugin-cli --plugins blueocean:1.24.5
+    apt-get update && apt-get upgrade -y;
