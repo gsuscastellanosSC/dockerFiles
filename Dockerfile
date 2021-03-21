@@ -1,6 +1,8 @@
 FROM ubuntu:20.04
+ENV TZ=Europe/Kiev
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update && apt-get upgrade -y && \
-    apt-get install sudo nano && \ 
+    apt-get install sudo nano systemd software-properties-common && \ 
     apt-get install -y zsh git-core git-flow wget apt-transport-https ca-certificates curl gnupg2 && \ 
     wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh && \ 
     apt-get install -y fonts-powerline && \ 
