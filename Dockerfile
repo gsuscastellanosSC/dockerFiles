@@ -1,8 +1,4 @@
 FROM openjdk:7
-COPY . /usr/src/myapp
-WORKDIR /usr/src/myapp
-RUN javac Main.java
-CMD ["java", "Main"]
 FROM ubuntu:20.04
 USER root
 RUN apt-get update && apt-get upgrade -y && \
