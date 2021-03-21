@@ -11,8 +11,8 @@ RUN apt-get update && apt-get upgrade -y && \
 RUN useradd -m jenkins && \
     sudo apt-get install -y wget gnupg && \
     wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - && \
-    sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list' && \
-    apt-get install -y jenkins && \ 
-    apt-get update && apt-get upgrade -y;
+    sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+RUN apt-get install -y jenkins && \ 
+    apt-get update && apt-get upgrade -y
 #USER jenkins
 #RUN jenkins-plugin-cli --plugins blueocean:1.24.5
