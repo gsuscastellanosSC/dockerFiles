@@ -12,4 +12,3 @@ RUN apt-get update && apt-get upgrade -y && \
 RUN ["ln", "-snf", "/usr/share/zoneinfo/$TZ", "/etc/localtime"];
 RUN echo $TZ > /etc/timezone;
 RUN apt-get install -y software-properties-common;
-#sgsegf
