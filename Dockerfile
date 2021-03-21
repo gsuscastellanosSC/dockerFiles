@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM openjdk:17-ea-14-jdk-nanoserver
 FROM ubuntu:20.04
 USER root
 RUN apt-get update && apt-get upgrade -y && \
