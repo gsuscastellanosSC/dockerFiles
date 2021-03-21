@@ -9,5 +9,6 @@ RUN apt-get update && apt-get upgrade -y && \
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && \ 
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && \ 
     apt-get update && apt-get upgrade -y;
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
-    apt-get install software-properties-common;
+RUN ["ln", "-snf", "/usr/share/zoneinfo/$TZ", "/etc/localtime"];
+RUN echo $TZ > /etc/timezone;
+RUN cat /etc/timezone;
