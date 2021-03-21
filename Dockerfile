@@ -22,7 +22,8 @@ RUN apt-get update && apt-get upgrade -y && \
     sudo apt update && \
     apt-get install -y docker-ce docker-ce-cli containerd.io && \
     /etc/init.d/docker start && \
-    /etc/init.d/docker status && \
-    useradd -m jenkins && \
-    usermod -aG root jenkins && \
-    adduser jenkins sudo;
+    wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - && \
+    sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list' && \
+    apt-get update && \
+    apt-get install -y jenkins;
+CMD /etc/init.d/jenkins start;
