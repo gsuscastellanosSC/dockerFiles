@@ -9,7 +9,7 @@ RUN apt-get update && apt-get upgrade -y && \
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && \ 
     apt-get update && apt-get upgrade -y;
 RUN useradd -m jenkins && \
-    sudo apt-get install -y openjdk-8-jdk wget gnupg && \
+    sudo apt-get install -y wget gnupg && \
     wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - && \
     sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list' && \
     sudo apt-get install jenkins -y && \ 
