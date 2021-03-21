@@ -15,7 +15,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     cat /etc/timezone && \
     apt-get update && \
     cat /etc/timezone && \
-    sudo apt install default-jdk && \
-    apt-get install software-properties-common;
+    apt-get install -y default-jdk && \
+    apt-get install -y software-properties-common;
 #USER root
 #RUN apt-get install -y software-properties-common;
