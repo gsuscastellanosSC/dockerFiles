@@ -11,5 +11,3 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get update && apt-get upgrade -y;
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
     apt-get install software-properties-common;
-#USER jenkins
-#RUN jenkins-plugin-cli --plugins blueocean:1.24.5
