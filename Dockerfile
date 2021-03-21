@@ -7,7 +7,12 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y fonts-powerline && \ 
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && \ 
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && \ 
-    apt-get update && apt-get upgrade -y && \ 
-    useradd -m jenkins
+    apt-get update && apt-get upgrade -y;
+RUN useradd -m jenkins && \
+    sudo apt-get install -y openjdk-8-jdk wget gnupg && \
+    wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - && \
+    sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list' && \
+    sudo apt-get install jenkins -y && \ 
+    apt-get update && apt-get upgrade -y;
 #USER jenkins
 #RUN jenkins-plugin-cli --plugins blueocean:1.24.5
