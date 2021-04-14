@@ -1,6 +1,5 @@
-version: "3.8"
- 
-services:
+version: "3.6"
+ services:
   ubuntu:
     build: .
     privileged: true
