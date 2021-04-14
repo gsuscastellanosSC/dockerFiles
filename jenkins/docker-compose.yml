@@ -2,7 +2,7 @@ version: '3.7'
 services:
   web:
     build: 
-        context: jenkins
+        context: Dokcerfile
     ports:
       - "8000:80"
     volumes:
