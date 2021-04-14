@@ -1,6 +1,7 @@
 version: "3.8"
+
  services:
-  ubuntu:
+  web:
     build: 
         context: jenkins/
     privileged: true
