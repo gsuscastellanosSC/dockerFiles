@@ -1,0 +1,15 @@
+version: "0.0.6"
+services:
+  web:
+    build: .
+    image: gsuscastelsc/jenkins:0.0.6
+    privileged: true
+    user: root
+    ports:
+      - 9999:8080
+      - 50000:50000
+    container_name: jenkinsSB
+    volumes:
+      - ~/jenkins:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/local/bin/docker:/usr/local/bin/docker
