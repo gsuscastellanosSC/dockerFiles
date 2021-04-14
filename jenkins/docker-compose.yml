@@ -1,8 +1,14 @@
-version: '3.7'
+version: "0.0.6"
 services:
   web:
     build: .
+    privileged: true
+    user: root
     ports:
-      - "8000:80"
+      - 9999:8080
+      - 50000:50000
+    container_name: jenkinsSB
     volumes:
-      - ./app:/usr/share/nginx/html
+      - ~/jenkins:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/local/bin/docker:/usr/local/bin/docker
