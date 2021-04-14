@@ -1,8 +1,7 @@
 version: "3.8"
  
 services:
-  web:
-    image: ubuntu:20.04
+  jenkins:
     build: .
     privileged: true
     user: root
