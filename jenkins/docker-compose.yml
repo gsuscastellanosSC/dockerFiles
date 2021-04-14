@@ -1,7 +1,8 @@
 version: "3.6"
  services:
   ubuntu:
-    image: ubuntu:20.04
+    build: 
+        context: jenkins/
     privileged: true
     user: root
     ports:
