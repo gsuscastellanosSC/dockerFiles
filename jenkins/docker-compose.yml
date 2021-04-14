@@ -2,11 +2,9 @@ version: "3.8"
  
 services:
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    #privileged: true
-    #user: root
+    build: .
+    privileged: true
+    user: root
     ports:
       - 9999:8080
       - 50000:50000
