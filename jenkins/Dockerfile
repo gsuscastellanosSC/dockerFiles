@@ -12,5 +12,19 @@ RUN apt-get update && apt-get upgrade -y && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     echo $TZ > /etc/timezone && \
     cat /etc/timezone && \
-    apt-get update;
+    apt-get update && \
+    cat /etc/timezone && \
+    apt-get install -y default-jdk && \
+    apt-get install -y software-properties-common gnupg-agent && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add && \
+    apt-key fingerprint 0EBFCD88 && \ 
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" && \
+    sudo apt update && \
+    wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - && \
+    sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list' && \
+    apt-get update && \
+    apt-get install -y jenkins && \
+    apt-get install -y docker-ce docker-ce-cli containerd.io && \
+    /etc/init.d/docker start && \
+    echo "Install finish successfull";
 CMD /etc/init.d/jenkins start && tail -f /dev/null;
