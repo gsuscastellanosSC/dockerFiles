@@ -28,4 +28,3 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y docker-ce docker-ce-cli containerd.io && \
     /etc/init.d/docker start && \
     echo "Install finish successfull";
-CMD /etc/init.d/jenkins start && tail -f /dev/null;
