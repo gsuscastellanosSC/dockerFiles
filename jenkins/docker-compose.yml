@@ -1,8 +1,8 @@
 version: "3.8"
 services:
     jenkins:
-        #image: gsuscastelsc/jenkins:0.0.6
-        build: .
+        image: gsuscastelsc/jenkins:0.0.6
+        #build: .
         privileged: true
         user: root
         ports:
