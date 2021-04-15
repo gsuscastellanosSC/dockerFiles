@@ -1,4 +1,3 @@
-#https://ubunlog.com/como-cambiar-la-contrasena-de-sudo-root-u-otro-usuario-en-ubuntu/
 FROM ubuntu:20.04
 ENV TZ=America/Bogota
 USER root
@@ -17,14 +16,14 @@ RUN apt-get update && apt-get upgrade -y && \
     cat /etc/timezone && \
     apt-get install -y default-jdk && \
     apt-get install -y software-properties-common gnupg-agent && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add && \
+    apt-key fingerprint 0EBFCD88 && \ 
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" && \
+    sudo apt update && \
+    apt-get install -y docker-ce docker-ce-cli containerd.io && \
+    /etc/init.d/docker start && \
     wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - && \
     sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list' && \
     apt-get update && \
-    apt-get install -y jenkins && \
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add && \
-    apt-key fingerprint 0EBFCD88 && \ 
-    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" && \
-    apt update && \
-    apt-get install -y docker-ce docker-ce-cli containerd.io && \
-    /etc/init.d/docker start && \
-    echo "Install finish successfull";
+    apt-get install -y jenkins;
+#CMD /etc/init.d/jenkins start && tail -f /dev/null;
