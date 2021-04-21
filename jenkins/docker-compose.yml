@@ -1,12 +1,11 @@
 version: "3.8"
 services:
     jenkins:
-        image: gsuscastelsc/jenkins:0.0.6
-        #build: .
+        build: .
         privileged: true
         user: root
         ports:
-            - 8084:8080
+            - 8086:8080
             - 50000:50000
         container_name: jenkinsSB
         volumes:
