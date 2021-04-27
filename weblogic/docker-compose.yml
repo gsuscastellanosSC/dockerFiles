@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+    jenkins:
+        image:  gsuscastelsc/weblogic:0.0.4
+        privileged: true
+        user: root
+        networks:
+            - host
+        container_name: wl
+        volumes:
+            - ~/weblogicVolumen:$ORACLE_HOME/user_projects/domains/base_domain/
+            
