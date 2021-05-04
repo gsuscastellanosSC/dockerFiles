@@ -8,5 +8,5 @@ services:
             - host
         container_name: wl
         volumes:
-            - ~/weblogicVolumen:$ORACLE_HOME/user_projects/domains/base_domain/
+            - /root/weblogicVolumen/weblogicVolumen:/u01/oracle/user_projects/domains/base_domain
             
