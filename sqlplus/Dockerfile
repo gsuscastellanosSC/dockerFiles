@@ -2,11 +2,11 @@ FROM ubuntu:20.04
 ENV TZ=America/Bogota
 USER root
 RUN apt-get update && apt-get upgrade -y && \
+    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     echo $TZ > /etc/timezone && \
     cat /etc/timezone && \
     apt-get update && \
     cat /etc/timezone && \
-    apt update && apt -y upgrade && \
     apt-get install -y alien wget && \
     wget -c https://download.oracle.com/otn_software/linux/instantclient/1911000/oracle-instantclient19.11-basic-19.11.0.0.0-1.x86_64.rpm && \
     wget -c https://download.oracle.com/otn_software/linux/instantclient/1911000/oracle-instantclient19.11-sqlplus-19.11.0.0.0-1.x86_64.rpm && \
