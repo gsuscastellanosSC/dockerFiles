@@ -36,4 +36,6 @@ RUN apt-get update && apt-get upgrade -y && \
 #RUN docker --version
 VOLUME /var/run/docker.sock
 #ENTRYPOINT chmod 777 /var/run/docker.sock && /usr/local/bin/jenkins.sh;
-ENTRYPOINT tail -f /dev/null;
+#ENTRYPOINT chmod 777 /var/run/docker.sock && /usr/local/bin/jenkins.sh;
+#ENTRYPOINT tail -f /dev/null;
+ENTRYPOINT /etc/init.d/jenkins start && tail -f /dev/null
