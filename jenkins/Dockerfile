@@ -34,8 +34,8 @@ RUN apt-get update && apt-get upgrade -y && \
 #RUN curl -fsSL https://get.docker.com -o get-docker.sh
 #RUN sh get-docker.sh
 #RUN docker --version
-VOLUME /var/run/docker.sock
+#VOLUME /var/run/docker.sock
 #ENTRYPOINT chmod 777 /var/run/docker.sock && /usr/local/bin/jenkins.sh;
 #ENTRYPOINT chmod 777 /var/run/docker.sock && /usr/local/bin/jenkins.sh;
 #ENTRYPOINT tail -f /dev/null;
-ENTRYPOINT /etc/init.d/jenkins start && tail -f /dev/null
+ENTRYPOINT /etc/init.d/jenkins start && chmod 777 /var/run/docker.sock && tail -f /dev/null
