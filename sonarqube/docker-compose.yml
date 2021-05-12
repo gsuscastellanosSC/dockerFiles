@@ -1,5 +1,6 @@
 version: '3'
- services:
+ 
+services:
   sonarqube:
     image: sonarqube:8.2-community
     ports:
