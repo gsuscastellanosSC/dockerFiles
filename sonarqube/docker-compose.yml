@@ -29,7 +29,7 @@ services:
 networks:
   sonarnet:
     driver: bridge
- 
+container_name: sonarqube 
 volumes:
   sonarqube_conf:
   sonarqube_data:
