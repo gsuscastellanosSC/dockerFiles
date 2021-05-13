@@ -1,12 +1,10 @@
-version: "3.8"
+version: '3'
 services:
-    jenkins:
-        image:  gsuscastelsc/weblogic:0.0.4
-        privileged: true
-        user: root
-        networks:
-            - host
-        container_name: wl
-        volumes:
-            - /root/weblogicVolumen/weblogicVolumen:/u01/oracle/user_projects/domains/base_domain
-            
+  remote_host:
+    container_name: remote-host
+    image: remote-host
+    build: .
+    networks:
+      - host
+networks:
+   host:
