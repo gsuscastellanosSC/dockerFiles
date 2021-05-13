@@ -1,5 +1,6 @@
-FROM centos
+FROM gsuscastelsc/weblogic:0.0.5
 
+USER root
 RUN yum -y install openssh-server openssh-clients
 
 RUN useradd -ms /bin/bash remote_user && \
@@ -13,6 +14,5 @@ RUN chown remote_user:remote_user   -R /home/remote_user && \
     chmod 600 /home/remote_user/.ssh/authorized_keys
 
 RUN /usr/bin/ssh-keygen -A
-#EXPOSE 22
 RUN rm -rf /run/nologin
-CMD ["/usr/sbin/sshd", "-D"]
+CMD /usr/sbin/sshd -D
