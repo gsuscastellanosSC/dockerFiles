@@ -1,0 +1,11 @@
+version: "3.8"
+ 
+services:
+  svn:
+    build: .
+        privileged: true
+        user: root
+        ports:
+            - 80:80
+            - 22:22
+        container_name: svn
