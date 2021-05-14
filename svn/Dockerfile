@@ -25,5 +25,6 @@ RUN apt-get update && apt-get upgrade -y && \
      apt-get install -y apache2 libapache2-mod-svn subversion && \
      mkdir -p /svn/repos/ && \
      sudo svnadmin create /svn/repos/myrepo && \
-     chown -R www-data:www-data /svn/repos/myrepo     
+     chown -R www-data:www-data /svn/repos/myrepo
+VOLUME /var/run/docker.sock
 ENTRYPOINT chmod 777 /var/run/docker.sock && tail -f /dev/null
