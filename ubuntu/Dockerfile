@@ -33,5 +33,6 @@ COPY remote-key.pub /root/.ssh/authorized_keys
 
 RUN chown root:root   -R /root && \
     chmod 600 /root/.ssh/authorized_keys
-CMD service ssh start
+#CMD service ssh start
 #CMD tail -f /dev/null
+CMD ["/usr/bin/sudo", "/usr/sbin/sshd", "-D", "-o"]
