@@ -25,8 +25,6 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y openssh-server openssh-client ssh && \
     mkdir /root/.ssh && \
     chmod 700 /root/.ssh
-RUN chown root:root   -R /root && \
-    chmod 600 /root/.ssh/authorized_keys
 RUN ["/etc/init.d/ssh", "start"]
 RUN sleep 10s;
 RUN echo "hola";
