@@ -28,7 +28,7 @@ RUN apt-get install -y openssh-client;
 RUN mkdir /root/.ssh && \
     chmod 700 /root/.ssh
 
-COPY ../.ssh/remote-key.pub /root/.ssh/authorized_keys
+COPY remote-key.pub /root/.ssh/authorized_keys
 COPY upSSH.sh /root/
 
 RUN chown root:root   -R /root && \
