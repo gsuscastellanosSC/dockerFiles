@@ -1,10 +1,10 @@
 FROM ubuntu:20.04
 ENV TZ=America/Bogota
 USER root
+RUN  mkdir /root/.ssh
 COPY remote-key.pub /root/.ssh/authorized_keys
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install sudo nano && \ 
-    mkdir /root/.ssh && \
     apt-get install -y zsh git-core git-flow wget apt-transport-https ca-certificates curl gnupg2 openssh-server openssh-client ssh && \ 
     /etc/init.d/ssh start && \
     wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh && \ 
