@@ -1,6 +1,6 @@
 FROM centos
 
-user root
+USER root
 RUN yum -y install openssh-server openssh-clients
 
 RUN mkdir /root/.ssh && \
