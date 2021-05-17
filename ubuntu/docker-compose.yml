@@ -7,3 +7,4 @@ services:
     ports:
       - "8000:22"
     privileged: true
+    entrypoint:  tail -f /dev/null
