@@ -3,7 +3,7 @@ ENV TZ=America/Bogota
 USER root
 RUN  mkdir /root/.ssh
 COPY remote-key.pub /root/.ssh/authorized_keys
-RUN apt-get update && apt-get upgrade -y && \
+RUN apt-get update && \
     apt-get install sudo nano && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     echo $TZ > /etc/timezone && \
@@ -16,9 +16,8 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y fonts-powerline && \ 
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && \ 
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && \ 
-    apt-get update && apt-get upgrade -y && \
-    apt-get install -y default-jdk && \
-    apt-get install -y software-properties-common gnupg-agent && \
+    apt-get update && \
+    apt-get install -y default-jdk software-properties-common gnupg-agent && \
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add && \
     apt-key fingerprint 0EBFCD88 && \ 
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" && \
