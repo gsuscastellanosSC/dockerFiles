@@ -10,4 +10,4 @@ services:
     user: root
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    entrypoint: chmod 777 /var/run/docker.sock && tail -f /dev/null
+    entrypoint: tail -f /dev/null
