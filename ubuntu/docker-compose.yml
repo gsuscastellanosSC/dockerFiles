@@ -1,9 +1,9 @@
 version: '3'
 services:
   remote_host:
-    container_name: remote-host
-    image: remote-host
     build: .
+    image: ubuntu
+    container_name: ubuntussh 
     ports:
       - "8000:22"
     privileged: true
