@@ -6,4 +6,5 @@ services:
     build: .
     ports:
       - "8000:22"
-    entrypoint: sh /root/upSSH.sh && tail -f /dev/null
+    command: sh /root/upSSH.sh
+    entrypoint: tail -f /dev/null
