@@ -29,8 +29,5 @@ COPY remote-key.pub /root/.ssh/authorized_keys
 USER root
 RUN chown root:root   -R /root && \
     chmod 600 /root/.ssh/authorized_keys
-#CMD service ssh start
-#CMD tail -f /dev/null
 RUN sleep 10s;
-RUN ["service", "ssh", "status"]
 RUN ["service", "ssh", "start"]
