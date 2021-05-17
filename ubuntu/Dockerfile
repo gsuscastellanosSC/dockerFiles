@@ -25,6 +25,7 @@ RUN apt-get update && apt-get upgrade -y && \
     echo "Install finish successfull";
 RUN apt-get install -y openssh-server;
 RUN apt-get install -y openssh-client;
+RUN apt-get install -y ssh;
 RUN mkdir /root/.ssh && \
     chmod 700 /root/.ssh
 
