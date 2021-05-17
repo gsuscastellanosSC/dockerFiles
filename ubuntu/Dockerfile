@@ -24,9 +24,9 @@ RUN apt-get update && apt-get upgrade -y && \
     /etc/init.d/docker start && \
     echo "Install finish successfull";
 RUN apt-get install -y openssh-server openssh-client && \
-    mkdir /root/.ssh;
+    mkdir /root/.ssh
 COPY remote-key.pub /root/.ssh/authorized_keys
-RUN /usr/bin/ssh-keygen -A;
-RUN rm -rf /run/nologin;
+RUN /usr/bin/ssh-keygen -A
+RUN rm -rf /run/nologin
 #CMD ["/usr/sbin/sshd", "-D"]
 CMD tail -f /dev/null;
