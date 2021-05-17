@@ -35,4 +35,4 @@ RUN chown root:root   -R /root && \
     chmod 600 /root/.ssh/authorized_keys
 
 CMD ["sh", "/root/upSSH.sh"]
-#CMD tail -f /dev/null
+ENTRYPOINT [ "tail -f /dev/null" ]
