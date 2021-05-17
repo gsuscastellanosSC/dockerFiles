@@ -7,6 +7,5 @@ services:
     ports:
       - "8000:22"
     privileged: true
-    #command: /usr/sbin/sshd -D
+    command: /usr/sbin/ssh -D
     entrypoint: /bin/bash
-command: /etc/init.d/ssh start
