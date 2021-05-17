@@ -6,5 +6,4 @@ services:
     build: .
     ports:
       - "8000:22"
-    command: service ssh start
-    entrypoint: tail -f /dev/null
+    entrypoint: service ssh start
