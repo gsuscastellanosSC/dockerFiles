@@ -7,5 +7,5 @@ services:
     ports:
       - "8000:22"
     privileged: true
-    command: "/usr/sbin/sshd", "-D"
+    command: /usr/sbin/sshd -D
     entrypoint:  tail -f /dev/null
