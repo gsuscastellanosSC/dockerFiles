@@ -4,7 +4,5 @@ services:
     container_name: remote-host
     image: remote-host
     build: .
-    networks:
-      - net
-networks:
-  net:
+    ports:
+      - "8000:22"

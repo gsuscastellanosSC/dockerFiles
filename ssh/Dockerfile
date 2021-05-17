@@ -14,6 +14,6 @@ RUN chown remote_user:remote_user   -R /home/remote_user && \
 
 #RUN /usr/sbin/sshd-keygen > /dev/null 2>&1
 RUN /usr/bin/ssh-keygen -A
-EXPOSE 22
+#EXPOSE 22
 RUN rm -rf /run/nologin
 CMD ["/usr/sbin/sshd", "-D"]
