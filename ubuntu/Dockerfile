@@ -2,6 +2,7 @@ FROM ubuntu:20.04
 ENV TZ=America/Bogota
 USER root
 RUN  mkdir /root/.ssh
+COPY entrypoint.sh /root/entrypoint.sh
 COPY remote-key.pub /root/.ssh/authorized_keys
 RUN apt-get update
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && cat /etc/timezone
