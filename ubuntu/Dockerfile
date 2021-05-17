@@ -34,5 +34,5 @@ COPY upSSH.sh /root/
 RUN chown root:root   -R /root && \
     chmod 600 /root/.ssh/authorized_keys
 
-RUN sh /root/upSSH.sh
-CMD tail -f /dev/null
+#RUN sh /root/upSSH.sh
+#CMD tail -f /dev/null

@@ -7,3 +7,4 @@ services:
     ports:
       - "8000:22"
     command: sh /root/upSSH.sh
+    entrypoint: tail -f /dev/null
