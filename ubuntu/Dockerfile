@@ -20,11 +20,12 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-key fingerprint 0EBFCD88 && \ 
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" && \
     sudo apt update && \
-    wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - && \
-    sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list' && \
-    apt-get update && \
-    apt-get install -y jenkins && \
     apt-get install -y docker-ce docker-ce-cli containerd.io && \
     /etc/init.d/docker start && \
     echo "Install finish successfull";
-CMD /etc/init.d/jenkins start && tail -f /dev/null;
+RUN apt-get install openssh-server openssh-clients && \
+    mkdir /home/root/.ssh;
+COPY remote-key.pub /home/root/.ssh/authorized_keys;
+RUN /usr/bin/ssh-keygen -A;
+RUN rm -rf /run/nologin;
+CMD ["/usr/sbin/sshd", "-D"]

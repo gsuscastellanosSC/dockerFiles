@@ -1,0 +1,8 @@
+version: '3'
+services:
+  remote_host:
+    container_name: ubuntu
+    image: ubuntuWithRemote-hostSSH
+    build: .
+    ports:
+      - "8000:22"
