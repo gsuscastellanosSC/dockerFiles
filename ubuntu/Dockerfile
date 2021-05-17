@@ -32,4 +32,5 @@ RUN chown root:root   -R /root && \
 #CMD service ssh start
 #CMD tail -f /dev/null
 RUN sleep 10s;
-CMD ["service", "ssh", "start"]
+RUN ["service", "ssh", "status"]
+RUN ["service", "ssh", "start"]
