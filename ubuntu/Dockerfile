@@ -20,9 +20,8 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-key fingerprint 0EBFCD88 && \ 
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" && \
     sudo apt update && \
-    apt-get install -y docker-ce docker-ce-cli containerd.io && \
+    apt-get install -y docker-ce docker-ce-cli containerd.io openssh-server openssh-client ssh && \
+    /etc/init.d/ssh start && \
     /etc/init.d/docker start && \
-    apt-get install -y openssh-server openssh-client ssh && \
-    mkdir /root/.ssh && \
-    /etc/init.d/ssh start;
+    mkdir /root/.ssh
 COPY remote-key.pub /root/.ssh/authorized_keys
