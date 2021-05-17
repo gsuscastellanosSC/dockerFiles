@@ -33,4 +33,5 @@ COPY remote-key.pub /root/.ssh/authorized_keys
 RUN chown root:root   -R /root && \
     chmod 600 /root/.ssh/authorized_keys
 
-ENTRYPOINT ["/etc/init.d/ssh", "start"];
+RUN ["/etc/init.d/ssh", "start"];
+ENTRYPOINT tail -f /dev/null
