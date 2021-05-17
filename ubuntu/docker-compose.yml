@@ -8,4 +8,5 @@ services:
       - "8000:22"
     privileged: true
     #command: /usr/sbin/sshd -D
-    entrypoint:  /etc/init.d/ssh start && /bin/bash
+    entrypoint: /bin/bash
+command: /etc/init.d/ssh start
