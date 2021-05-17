@@ -24,8 +24,5 @@ RUN apt-get update && apt-get upgrade -y && \
     /etc/init.d/docker start && \
     apt-get install -y openssh-server openssh-client ssh && \
     mkdir /root/.ssh && \
-    chmod 700 /root/.ssh
-RUN ["/etc/init.d/ssh", "start"]
-RUN sleep 10s;
-RUN echo "hola";
+    /etc/init.d/ssh start;
 COPY remote-key.pub /root/.ssh/authorized_keys
