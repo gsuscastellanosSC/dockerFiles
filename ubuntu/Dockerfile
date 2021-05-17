@@ -5,7 +5,7 @@ RUN  mkdir /root/.ssh
 COPY remote-key.pub /root/.ssh/authorized_keys
 RUN apt-get update && apt-get install sudo nano
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && cat /etc/timezone
-RUN apt-get install -y apt-transport-https ca-certificates curl gnupg2 openssh-server openssh-client ssh zsh git-core git-flow
+RUN apt-get install -y openssh-server openssh-client ssh apt-transport-https ca-certificates curl gnupg2 zsh git-core git-flow
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh && apt-get install -y fonts-powerline && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 RUN apt-get install -y default-jdk software-properties-common gnupg-agent && \
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add && \
