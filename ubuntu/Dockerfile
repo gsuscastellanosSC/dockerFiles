@@ -33,7 +33,5 @@ COPY remote-key.pub /root/.ssh/authorized_keys
 RUN chown root:root   -R /root && \
     chmod 600 /root/.ssh/authorized_keys
 
-RUN /usr/bin/ssh-keygen -A
-RUN rm -rf /run/nologin
-CMD /usr/sbin/sshd -D
-ENTRYPOINT sudo /etc/init.d/ssh start
+CMD sudo /etc/init.d/ssh start
+ENTRYPOINT tail -f /dev/null
