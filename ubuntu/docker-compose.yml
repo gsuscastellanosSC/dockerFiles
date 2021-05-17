@@ -9,3 +9,4 @@ services:
     privileged: true
     entrypoint: tail -f /dev/null
     command: /etc/init.d/ssh start
+    command: service ssh start
