@@ -8,4 +8,4 @@ services:
       - "8000:22"
     privileged: true
     #command: /usr/sbin/sshd -D
-    entrypoint:  tail -f /dev/null
+    entrypoint:  /etc/init.d/sshd start && /bin/bash && tail -f /dev/null
