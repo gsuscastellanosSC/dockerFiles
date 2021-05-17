@@ -7,5 +7,5 @@ echo "###########################";
 
 service ssh status;
 service ssh start;
-sleep 20s;
+sleep 10s;
 service ssh status;
