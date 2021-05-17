@@ -33,5 +33,7 @@ COPY remote-key.pub /root/.ssh/authorized_keys
 RUN chown root:root   -R /root && \
     chmod 600 /root/.ssh/authorized_keys
 
-#RUN sh /root/upSSH.sh
+RUN service ssh status
+RUN service ssh start
+RUN service ssh status
 #CMD tail -f /dev/null
