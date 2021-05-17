@@ -36,5 +36,4 @@ RUN chown root:root   -R /root && \
 
 RUN service ssh status
 RUN service ssh start
-RUN service ssh status
 #CMD tail -f /dev/null
