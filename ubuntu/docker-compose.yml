@@ -7,5 +7,5 @@ services:
     ports:
       - "8000:22"
     privileged: true
-    command: /usr/sbin/ssh -D
     entrypoint: tail -f /dev/null
+    command: /etc/init.d/ssh start
