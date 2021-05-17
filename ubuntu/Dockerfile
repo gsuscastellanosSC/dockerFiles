@@ -29,7 +29,6 @@ RUN mkdir /root/.ssh && \
     chmod 700 /root/.ssh
 
 COPY remote-key.pub /root/.ssh/authorized_keys
-COPY upSSH.sh /root/
 
 RUN chown root:root   -R /root && \
     chmod 600 /root/.ssh/authorized_keys
