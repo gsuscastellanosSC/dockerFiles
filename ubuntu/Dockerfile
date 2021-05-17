@@ -25,10 +25,9 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y openssh-server openssh-client ssh && \
     mkdir /root/.ssh && \
     chmod 700 /root/.ssh
-COPY remote-key.pub /root/.ssh/authorized_keys
-USER root
 RUN chown root:root   -R /root && \
     chmod 600 /root/.ssh/authorized_keys
-RUN sleep 10s;
 RUN ["/etc/init.d/ssh", "start"]
+RUN sleep 10s;
 RUN echo "hola";
+COPY remote-key.pub /root/.ssh/authorized_keys
