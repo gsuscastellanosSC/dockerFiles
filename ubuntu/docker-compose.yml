@@ -7,5 +7,4 @@ services:
     ports:
       - "8000:22"
     privileged: true
-    command: chmod 777 /var/run/docker.sock
     entrypoint: tail -f /dev/null
