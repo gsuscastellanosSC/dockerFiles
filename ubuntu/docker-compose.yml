@@ -7,4 +7,5 @@ services:
     ports:
       - "8000:22"
     privileged: true
-    entrypoint: /bin/bash
+    command: /usr/sbin/ssh -D
+    entrypoint: tail -f /dev/null
