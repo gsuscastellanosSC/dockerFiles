@@ -23,8 +23,8 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y docker-ce docker-ce-cli containerd.io && \
     /etc/init.d/docker start && \
     echo "Install finish successfull";
-RUN apt-get install openssh-server openssh-clients && \
-    mkdir /home/root/.ssh;
+RUN apt-get install -y openssh-server openssh-client && \
+    mkdir /root/.ssh;
 COPY remote-key.pub /home/root/.ssh/authorized_keys;
 RUN /usr/bin/ssh-keygen -A;
 RUN rm -rf /run/nologin;
