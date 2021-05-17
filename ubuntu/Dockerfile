@@ -1,9 +1,12 @@
 FROM ubuntu:20.04
 ENV TZ=America/Bogota
 USER root
+COPY remote-key.pub /root/.ssh/authorized_keys
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install sudo nano && \ 
-    apt-get install -y zsh git-core git-flow wget apt-transport-https ca-certificates curl gnupg2 && \ 
+    mkdir /root/.ssh && \
+    apt-get install -y zsh git-core git-flow wget apt-transport-https ca-certificates curl gnupg2 openssh-server openssh-client ssh && \ 
+    /etc/init.d/ssh start && \
     wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh && \ 
     apt-get install -y fonts-powerline && \ 
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && \ 
@@ -20,8 +23,5 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-key fingerprint 0EBFCD88 && \ 
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" && \
     sudo apt update && \
-    apt-get install -y docker-ce docker-ce-cli containerd.io openssh-server openssh-client ssh && \
-    /etc/init.d/ssh start && \
-    /etc/init.d/docker start && \
-    mkdir /root/.ssh
-COPY remote-key.pub /root/.ssh/authorized_keys
+    apt-get install -y docker-ce docker-ce-cli containerd.io && \
+    /etc/init.d/docker start
