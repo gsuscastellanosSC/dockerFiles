@@ -36,5 +36,4 @@ RUN chown root:root   -R /root && \
 RUN /usr/bin/ssh-keygen -A
 RUN rm -rf /run/nologin
 CMD /usr/sbin/sshd -D
-RUN sudo /etc/init.d/ssh start
-ENTRYPOINT tail -f /dev/null
+ENTRYPOINT sudo /etc/init.d/ssh start
