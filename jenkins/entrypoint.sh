@@ -13,12 +13,12 @@ echo "######################";
     # Start services
     startServices(){
         /etc/init.d/ssh start;
-        # /etc/init.d/jenkins start;
+        /etc/init.d/jenkins start;
     }
     # Entripoint
     entripoint() {
         docker;
-        startServices;
+        #startServices;
         tail -f /dev/null
     }
         

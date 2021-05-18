@@ -10,6 +10,6 @@ RUN wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-
      sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list' && \
      apt-get update && \
      apt-get install -y jenkins;
-RUN  mkdir /root/.ssh
-COPY authorized_keys /root/.ssh/authorized_keys
+RUN  mkdir /root/.ssh;
+COPY authorized_keys /root/.ssh/authorized_keys;
 COPY entrypoint.sh /root/entrypoint.sh;
