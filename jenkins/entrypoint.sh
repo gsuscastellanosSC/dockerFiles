@@ -19,7 +19,6 @@ echo "######################";
     entripoint() {
         docker;
         startServices;
-        tail -f /dev/null
     }
         
 # Ejecución
