@@ -18,7 +18,7 @@ echo "######################";
     # Entripoint
     entripoint() {
         docker;
-        #startServices;
+        startServices;
         tail -f /dev/null
     }
         
