@@ -2,7 +2,7 @@ version: '3'
 services:
   sqlplus:
     container_name: sqlplus
-    image: sqlplus:0.0.
+    image: sqlplus:0.0.0
     build: .
     ports:
       - "2222:22"
