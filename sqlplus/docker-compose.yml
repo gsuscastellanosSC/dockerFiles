@@ -1,0 +1,9 @@
+version: '3'
+services:
+  sqlplus:
+    container_name: sqlplus
+    image: sqlplus:0.0.
+    build: .
+    ports:
+      - "2222:22"
+    entrypoint: tail -f /dev/null
