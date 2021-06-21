@@ -1,0 +1,11 @@
+version: '3'
+services:
+  antWithWebLogic:
+    build: .
+    image: ubuntu
+    container_name: antWithWebLogic
+    privileged: true
+    user: root
+    volumes:
+      - .:/root
+    entrypoint: sh /root/entrypoint.sh
